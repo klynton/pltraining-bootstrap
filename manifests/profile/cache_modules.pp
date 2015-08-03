@@ -33,7 +33,7 @@ class bootstrap::profile::cache_modules(
   bootstrap::forge { 'pltraining-userprefs':}
   bootstrap::forge { 'puppetlabs-acl':                  version => '1.1.0'}
   bootstrap::forge { 'puppetlabs-apache':               version => '1.2.0'}
-  bootstrap::forge { 'puppetlabs-concat':               version => '2.0.0'}
+  bootstrap::forge { 'puppetlabs-concat':               version => '1.2.4'}
   bootstrap::forge { 'puppetlabs-git':                  version => '0.2.0'}
   bootstrap::forge { 'puppetlabs-haproxy':              version => '1.0.0'}
   bootstrap::forge { 'puppetlabs-inifile':              version => '1.2.0'}
@@ -41,9 +41,10 @@ class bootstrap::profile::cache_modules(
   bootstrap::forge { 'puppetlabs-ntp':                  version => '3.2.1'}
   bootstrap::forge { 'puppetlabs-pe_gem':               version => '0.0.1'}
   bootstrap::forge { 'puppetlabs-pe_puppetserver_gem':  version => '0.0.1'}
+  bootstrap::forge { 'puppetlabs/puppetserver_gem':     version => '0.1.0'}
   bootstrap::forge { 'puppetlabs-reboot':               version => '0.1.9'}
   bootstrap::forge { 'puppetlabs-registry':             version => '1.1.0'}
-  bootstrap::forge { 'puppetlabs-stdlib':               version => '4.3.2'}
+  bootstrap::forge { 'puppetlabs-stdlib':               version => '4.7.0'}
   bootstrap::forge { 'puppetlabs-vcsrepo':              version => '1.1.0'}
   bootstrap::forge { 'razorsedge-vmwaretools':          version => '4.7.0'}
   bootstrap::forge { 'stahnma-epel':                    version => '1.0.2'}

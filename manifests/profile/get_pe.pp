@@ -1,17 +1,15 @@
 # -------
 # Fetch PE and unzip full installer
-# Stage agent installer.
 # -------
 
-class bootstrap::profile::get_pe(
-  $version   = '3.8.1',
+class bootstrap::profile::get_pe (
+  $version        = $bootstrap::params::pe_version,
   $pe_destination = '/root',
   $architecture   = $::architecture,
   $file_cache     = '/vagrant/file_cache'
-) {
-  $pe_dir        = "puppet-enterprise-${version}-el-${operatingsystemmajrelease}-${architecture}"
+) inherits bootstrap::params {
+  $pe_dir         = "puppet-enterprise-${version}-el-${operatingsystemmajrelease}-${architecture}"
   $pe_file        = "${pe_dir}.tar.gz"
-  $agent_file     = "${pe_dir}-agent.tar.gz"
   $url            = "https://s3.amazonaws.com/pe-builds/released/${version}"
 
   Staging::File {
@@ -19,17 +17,7 @@ class bootstrap::profile::get_pe(
   }
 
   # Check if there is a locally cached copy from the build
-  if file_exists ("${file_cache}/installers/${agent_file}") == 1 {
-    staging::file{ $agent_file:
-      source => "${file_cache}/installers/${agent_file}",
-    }
-  }
-  else {
-    staging::file{ $agent_file:
-      source => "${url}/${agent_file}",
-    }
-  }
-  if file_exists ("${file_cache}/installers/${agent_file}") == 1 {
+  if file_exists ("${file_cache}/installers/${pe_file}") == 1 {
     staging::file{ $pe_file:
       source => "${file_cache}/installers/${pe_file}",
     }
